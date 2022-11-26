@@ -12,5 +12,10 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+dependencyResolutionManagement {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
 rootProject.name = "HealthApp"
 include ':app'
