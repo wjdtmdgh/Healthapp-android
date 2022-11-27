@@ -12,7 +12,15 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.content.DialogInterface;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
@@ -28,7 +36,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     Button routineBtn, dayRoutineBtn, foodBtn, alertBtn;
-
+    Button btn_food;
+    View v_d;
+    EditText et1;
+    EditText et2;
+    EditText et3;
+    double kcal;
     private void initChart(BarChart barChart){
         // 차트 회색 배경 설정 (default = false)
         barChart.setDrawGridBackground(false);
@@ -93,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         refreshData(barChart);
     }
     private void refreshData(BarChart barChart){
-        String title = "걸음 수";
+        String title = "몸무게";
         BarDataSet barDataSet = new BarDataSet(valueList, title);
         // 바 색상 설정 (ColorTemplate.LIBERTY_COLORS)
         barDataSet.setColors(
@@ -140,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 myAlertBuilder.setView(view1);
                 myAlertBuilder.setPositiveButton("Ok",new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog,int which){
-                        // OK 버튼을 눌렸을 경우 메인페이지로 이동!
+                        // OK 버튼을 눌렸을 경우 차트그려주고 메인액티비티 refresh
                         EditText editText=(EditText)view1.findViewById(R.id.weight);
                         System.out.println(editText.getText().toString());
                         appendData(barChart,dayOfMonth,Float.parseFloat(editText.getText().toString()));

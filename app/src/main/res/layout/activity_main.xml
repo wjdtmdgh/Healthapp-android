@@ -17,7 +17,6 @@
         android:fillViewport="true"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
@@ -88,7 +87,7 @@
                 android:text="이번 달 회원님 운동 현황"
                 android:textColor="#50BCDF"
                 android:textSize="20sp"
-
+                android:layout_gravity="center"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -121,6 +120,8 @@
                 android:text="현재 회원님 몸무게현황"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:textColor="#50BCDF"
+                android:layout_gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view2" />
@@ -128,7 +129,7 @@
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/chart"
                 android:layout_width="match_parent"
-                android:layout_height="387dp"
+                android:layout_height="330dp"
                 android:layout_margin="10dp"
                 android:layout_marginTop="173dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -138,44 +139,39 @@
                 app:layout_constraintTop_toBottomOf="@+id/calendar"
                 app:layout_constraintVertical_bias="1.0" />
             <!--        </View>-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btn_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="부분별 운동"/>
+                <Button
+                    android:id="@+id/btn_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="하루운동" />
+                <Button
+                    android:id="@+id/btn_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="식단" />
+                <Button
+                    android:id="@+id/btn_rest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="휴식 알람"
+                    />
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/btn_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
 
-        android:text="부분별 운동"/>
-
-    <Button
-        android:id="@+id/btn_day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="하루운동"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_food"
-        app:layout_constraintStart_toEndOf="@+id/btn_type" />
-
-
-    <Button
-        android:id="@+id/btn_food"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="식단"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_rest" />
-
-
-    <Button
-        android:id="@+id/btn_rest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="휴식 알람"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
