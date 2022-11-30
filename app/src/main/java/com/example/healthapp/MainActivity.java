@@ -1,5 +1,5 @@
-package com.example.healthapp;
 
+package com.example.healthapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -21,6 +21,11 @@ import android.content.DialogInterface;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import com.example.healthapp.RoutineActivity;
+import com.example.healthapp.TimerActivity;
+import com.example.healthapp.DayRoutineActivity;
+import com.example.healthapp.FoodActivity;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
@@ -172,15 +177,58 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), TimerActivity.class);
                 startActivity(intent);
             }
-        });
-        Button btn_food = (Button) findViewById(R.id.btn_food);
-        btn_food.setOnClickListener(new View.OnClickListener(){
 
+        });
+        btn_food = (Button) findViewById(R.id.btn_food);
+        btn_food.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                Intent intent = new Intent(getApplicationContext(), FoodActivity.class);
-                startActivity(intent);
+            public void onClick(View view) {
+                //onClick 함수가 Dialog(대화상자)를 만들어 줌.
+                AlertDialog.Builder d = new AlertDialog.Builder(MainActivity.this);
+
+                //d.setTitle("칼로리 계산을 위한 정보를 입력해주세요.");
+
+                //View.inflate 이용하여 그 뷰에 해당하는 것을 '구현/실행'해주고,
+                v_d = (View) View.inflate(MainActivity.this, R.layout.dialog, null);
+                //실행한 것을 setView 함수로 전달.
+                d.setView(v_d);
+
+                d.setPositiveButton("입력",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                //dialog라는 레이아웃이 실제로 생성(inflate)되고 난 다음에, v_d라는 애를 통해서,
+                                //그 안에 속한 것 중에서 찾아오는 것이 가능하다.
+                                //setPositiveButton이 눌리게 되었을 때, dialog에 해당하는 우리가 만든 View (=v_d)로부터 et를 찾아옴
+                                //dialog라는 레이아웃이 실제로 생성(inflate)되고 난 다음에, v_d라는 애를 통해서,
+                                //그 안에 속한 것 중에서 찾아오는 것이 가능하다.
+                                //setPositiveButton이 눌리게 되었을 때, dialog에 해당하는 우리가 만든 View (=v_d)로부터 et를 찾아옴
+                                et1 = (EditText) v_d.findViewById(R.id.et_age);
+                                et2 = (EditText) v_d.findViewById(R.id.et_weight);
+                                et3 = (EditText) v_d.findViewById(R.id.et_height);
+                                kcal=Double.parseDouble(et2.getText().toString());
+
+                                RadioGroup rg= (RadioGroup)v_d.findViewById(R.id.gender);
+                                int checkedId= rg.getCheckedRadioButtonId();
+                                RadioButton rb= (RadioButton)rg.findViewById(checkedId);
+                                String gender= rb.getText().toString();
+                                if(gender.equals("남자"))
+                                    kcal=66.47+(13.75*Double.parseDouble(et2.getText().toString()))+(5*Double.parseDouble(et3.getText().toString()))-(6.76*Double.parseDouble(et1.getText().toString()));
+                                else
+                                    kcal=655.1+(9.56*Double.parseDouble(et2.getText().toString()))+(1.85*Double.parseDouble(et3.getText().toString()))-(4.68*Double.parseDouble(et1.getText().toString()));
+
+
+                                Intent intent = new Intent(MainActivity.this, FoodActivity.class);
+                                //입력한 input값을 intent로 전달한다.
+                                intent.putExtra("kcal", kcal);
+                                //액티비티 이동
+                                startActivity(intent);
+                            }
+                        });
+                d.show();
             }
+
         });
         routineBtn.setOnClickListener(new View.OnClickListener() {
             @Override

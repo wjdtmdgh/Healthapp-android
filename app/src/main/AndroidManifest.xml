@@ -11,25 +11,25 @@
         android:theme="@style/Theme.HealthApp">
         <activity
             android:name=".ExerciseActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".DayRoutineActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".RoutineActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".SignUpActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".SigninActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".TimerActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".FoodActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
