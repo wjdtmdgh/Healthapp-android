@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FoodActivity">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="정승호"
+            android:textSize="30dp"
+            android:textColor="#03A9F4"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="님의 하루 권장 칼로리는?"
+            android:textSize="25dp"
+            android:textStyle="bold"
+
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/eat"
+            android:scaleType="fitXY"/>
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2700kcal"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+
+            android:layout_gravity="bottom"/>
+    </LinearLayout>
+
+    <View
+        android:background="#807D7D"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"/>
+
+    <RelativeLayout
+        android:layout_width="330dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="40dp">
+        <TextView
+            android:layout_width="330dp"
+            android:layout_height="120dp"
+            android:background="#CDCACA"
+            android:text="식빵2장(200kcal), 저지방우유 200ml(100kcl), 달걀1개(100kcl),
+양배추샐러드50g(70kcal), 자몽1개(100kcal)"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:paddingTop="30dp"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            android:text="아침"
+            android:textColor="@color/white"
+            android:textSize="23dp"
+            android:gravity="center_horizontal"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="330dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="40dp">
+        <TextView
+            android:layout_width="330dp"
+            android:layout_height="120dp"
+            android:background="#CDCACA"
+            android:text="잡곡밥150g(200kcal), 된장국(80kcal), 삼치구이50g(150kcal), 콩나물70g(50kcal), 배추김치50g(150kcal)"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:paddingTop="30dp"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            android:text="점심"
+            android:textColor="@color/white"
+            android:textSize="23dp"
+            android:gravity="center_horizontal"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="330dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="40dp">
+        <TextView
+            android:layout_width="330dp"
+            android:layout_height="120dp"
+            android:background="#CDCACA"
+            android:text="콩밥150g(200kcal), 미역국250g(70kcal)"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:paddingTop="30dp"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            android:text="저녁"
+            android:textColor="@color/white"
+            android:textSize="23dp"
+            android:gravity="center_horizontal"
+            />
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/foodprev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="prev"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        />
+
+
+
+
+</LinearLayout>
